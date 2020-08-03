@@ -1,0 +1,17 @@
+{
+    "mentions": [
+        {
+            "text": {
+                "content": "library effort",
+                "beginOffset": -1
+            },
+            "type": "COMMON",
+            "sentiment": null
+        }
+    ],
+    "metadata": {},
+    "name": "library effort",
+    "type": "OTHER",
+    "salience": 0.016201555728912354,
+    "sentiment": null
+}

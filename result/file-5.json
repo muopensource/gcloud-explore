@@ -1,0 +1,20 @@
+{
+    "mentions": [
+        {
+            "text": {
+                "content": "JavaScript",
+                "beginOffset": -1
+            },
+            "type": "PROPER",
+            "sentiment": null
+        }
+    ],
+    "metadata": {
+        "wikipedia_url": "https://en.wikipedia.org/wiki/JavaScript",
+        "mid": "/m/02p97"
+    },
+    "name": "JavaScript",
+    "type": "OTHER",
+    "salience": 0.026241982355713844,
+    "sentiment": null
+}
