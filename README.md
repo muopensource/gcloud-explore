@@ -1,4 +1,4 @@
-### Exploring Google Cloud APIs
+## Exploring Google Cloud APIs
 
 > Exploring - Cloud Storage, Natural Language, and Vision APIs 🧪
 

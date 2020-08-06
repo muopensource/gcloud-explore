@@ -1,8 +1,8 @@
-const { Storage } = require("@google-cloud/storage");
-const vision = require("@google-cloud/vision").v1;
-const chalk = require("chalk");
+const { Storage } = require('@google-cloud/storage');
+const vision = require('@google-cloud/vision').v1;
+const chalk = require('chalk');
 
-function main(bucketName = "my-bucket") {
+function main(bucketName = 'my-bucket') {
   //   const storage = new Storage({ keyFilename: `g-key.json` });
 
   //   async function listFiles() {
@@ -19,15 +19,15 @@ function main(bucketName = "my-bucket") {
 
   const client = new vision.ImageAnnotatorClient({ keyFilename: `g-key.json` });
 
-  const fileName = "hawyar-resume.pdf";
-  const outputPrefix = "results";
+  const fileName = 'hawyar-resume.pdf';
+  const outputPrefix = 'results';
 
   const gcsSourceUri = `gs://${`norcom-bucket`}/${fileName}`;
   const gcsDestinationUri = `gs://${`norcom-bucket`}/${outputPrefix}/`;
 
   const inputConfig = {
     // Supported mime_types are: 'application/pdf' and 'image/tiff'
-    mimeType: "application/pdf",
+    mimeType: 'application/pdf',
     gcsSource: {
       uri: gcsSourceUri,
     },
@@ -38,7 +38,7 @@ function main(bucketName = "my-bucket") {
     },
   };
 
-  const features = [{ type: "DOCUMENT_TEXT_DETECTION" }];
+  const features = [{ type: 'DOCUMENT_TEXT_DETECTION' }];
 
   const request = {
     requests: [
@@ -56,7 +56,7 @@ function main(bucketName = "my-bucket") {
 
     const destinationUri =
       filesResponse.responses[0].outputConfig.gcsDestination.uri;
-    console.log("Json saved to: " + destinationUri);
+    console.log('Json saved to: ' + destinationUri);
   };
 
   run();

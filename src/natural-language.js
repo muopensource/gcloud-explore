@@ -1,22 +1,20 @@
-const chalk = require("chalk");
-const fs = require("fs");
+require('dotenv').config();
+const fs = require('fs');
+
 async function main() {
-  // Imports the Google Cloud client library
-  const language = require("@google-cloud/language");
+  const language = require('@google-cloud/language');
 
   // Instantiates a client
   const client = new language.LanguageServiceClient({
-    keyFilename: `g-key.json`,
+    keyFilename: process.env.GOOGLE_SECRET,
   });
 
   // The text to analyze
-  const text = `The Google Hosted Libraries is a stable, reliable, high-speed, globally available content distribution network for the most popular, open-source JavaScript libraries.
-
-  Google works directly with the key stakeholders for each library effort and accepts the latest versions as they are released.`;
+  const text = `The Google Hosted Libraries is a stable, reliable, high-speed, globally available content distribution network for the most popular, open-source JavaScript libraries. Google works directly with the key stakeholders for each library effort and accepts the latest versions as they are released.`;
 
   const document = {
     content: text,
-    type: "PLAIN_TEXT",
+    type: 'PLAIN_TEXT',
   };
 
   // Detects the sentiment of the text
@@ -46,16 +44,16 @@ async function main() {
   console.log(`Text: ${text}`);
   console.log(`Sentiment score: ${sentiment.score}`);
   console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-  console.log("------------");
+  console.log('------------');
 
   function humanize(score) {
-    score >= 0.8 ? console.log("Happy") : console.log(`Why so mad broski`);
+    score >= 0.8 ? console.log('Happy') : console.log(`Why so mad broski`);
   }
 
   humanize(sentiment.score);
 
   const [classification] = await client.classifyText({ document: document });
-  console.log("Categories:");
+  console.log('Categories:');
   classification.categories.forEach((category) => {
     console.log(`Name: ${category.name}, Confidence: ${category.confidence}`);
   });

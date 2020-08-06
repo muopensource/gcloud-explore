@@ -4,8 +4,8 @@
   "description": "Google Cloud Storage + Document API ",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node src/index",
+    "dev": "nodemon src/index"
   },
   "author": "hawyar",
   "license": "MIT",
@@ -16,7 +16,6 @@
     "@google-cloud/vision": "^2.1.1",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
-    "nodemo": "^1.0.0",
     "nodemon": "^2.0.4"
   }
 }
