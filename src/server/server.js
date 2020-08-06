@@ -32,6 +32,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(
   fileUpload({
     createParentPath: true,
+    limits: { fileSize: 50 * 1024 * 1024 },
   })
 );
 
