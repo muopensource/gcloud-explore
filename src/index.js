@@ -3,51 +3,85 @@ const { Storage } = require('@google-cloud/storage');
 const vision = require('@google-cloud/vision').v1;
 const chalk = require('chalk');
 
-const storage = new Storage({ keyFilename: process.env.GOOGLE_SECRET });
+/**
+ * G Cloud Storage's instance
+ * @param: Option?: keyFilename, projectId
+ */
+const storage = new Storage({
+  keyFilename: process.env.GOOGLE_SECRET,
+  projectId: process.env.PROJECT_ID,
+});
 
-async function listFiles(bucketName) {
-  let fileMeta = {};
-  // Lists files in the bucket
-  const [files] = await storage.bucket(bucketName).getFiles();
+/**
+ * Get all available bucket's name
+ * Returns an array of all buckets
+ * @returns {arr[]} An array of all the files
+ */
 
-  files.forEach((file) => {
-    Object.Assign(fileMeta, { file_name: file.name });
+async function listBuckets() {
+  // Lists all buckets in the current project
+  const [buckets] = await storage.getBuckets();
+
+  const arr = buckets.map((bucket) => {
+    return bucket.name;
   });
-  console.log(fileMeta);
 
-  return fileMeta;
+  return arr;
+}
+listBuckets().catch(console.error);
+/**
+ * Get a bucket's metadata
+ * Returns bucket's metadata (e.g. id, location, name, description, timestamps, etc...)
+ * @returns {}
+ */
+async function getBucketMetadata(bucket = process.env.BUCKET) {
+  const [metadata] = await storage.bucket(bucket).getMetadata();
+  return metadata;
 }
 
-listFiles(process.env.BUCKET).catch(console.error);
+getBucketMetadata().catch(console.error);
+
 /**
- * Fetchs all the files from a bucket
- * Returns an array of all the file anmes
+ * Lists all files for a single bucket
+ * Returns an array of the files
+ * @param {string} bucket - Name of the bucket
+ * @returns {arr[]} An array of all the files
+ */
+
+async function listFiles(bucketName = process.env.BUCKET) {
+  let fileMeta = [];
+  try {
+    const [files] = await storage.bucket(bucketName).getFiles();
+
+    files.forEach((file) => {
+      fileMeta.push(file.name);
+    });
+
+    return fileMeta;
+  } catch (error) {
+    console.log(`Error:` + chalk.bgRedBright(`Failed: Cannot fetch bucket`));
+    throw new Error(err);
+  }
+}
+// get all files for a bucket
+listFiles().catch(console.error);
+
+/**
+ * Fetches all the files for multiple buckets
+ * Returns an object with each bucket and its corresponding file
  * @param {string[]} countries - The list of countries.
  * @returns {arr[]} An array of all the file name
  */
-async function getAllFiles(fetchBucket = '' || []) {
-  fetchBucket = process.env.BUCKET;
-
+async function listFilesBuckets(fetchBucket = []) {
+  // if (!fetchBucket || fetchBucket.length === 0 || !Array.isArray(fetchBucket)) {
+  //   throw new Error(`Error: Bucket array cannot be empty`);
+  // }
   let allFiles = [];
   let allBuckets = [];
 
   try {
     if (Array.isArray(fetchBucket) && fetchBucket > 0) {
       const [buckets] = await storage.getBuckets();
-
-      buckets.forEach((buck) => {
-        allBuckets.push(buck);
-      });
-
-      // buckets has all buckets
-
-      let obj = {};
-
-      allBuckets.map((bucket) => {
-        obj.Assign(obj, (file) => {
-          file.name;
-        });
-      });
     }
 
     const [files] = await storage.bucket(fetchBucket).getFiles();
@@ -65,6 +99,7 @@ async function getAllFiles(fetchBucket = '' || []) {
     console.log(
       `Error:` + chalk.bgRedBright(`Cannot fetch files from google storage`)
     );
+    throw new Error(err);
   }
 }
 
