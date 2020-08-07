@@ -1,5 +1,5 @@
 g-key.json
 node_modules
 .env
-storage
 uploads
+mstorage
