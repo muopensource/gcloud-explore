@@ -47,11 +47,11 @@ async function listBuckets() {
   // Lists all buckets in the current project
   const [buckets] = await storage.getBuckets();
 
-  const arr = buckets.map((bucket) => {
+  const allBuckets = buckets.map((bucket) => {
     return bucket.name;
   });
 
-  return arr;
+  return allBuckets;
 }
 
 /**
@@ -133,4 +133,5 @@ function sortByExt(file) {
 
 module.exports = {
   listBuckets,
+  createBucket,
 };
