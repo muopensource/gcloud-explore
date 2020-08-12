@@ -2,6 +2,6 @@
 
 > Exploring - Cloud Storage, Natural Language, and Vision APIs 🧪
 
-Kurdscope needs a pipeline for its data processing and storage architecture. This is a playground to test ideas and make quick demos.
+This is a playground to test ideas and make quick demos for google cloud [products](https://cloud.google.com/products)
 
-Definitely check out Google [Cloud APIs](https://cloud.google.com/apis/docs/overview) 🤯
+Definitely check out Google [Cloud APIs](https://cloud.google.com/apis/docs/overview)
