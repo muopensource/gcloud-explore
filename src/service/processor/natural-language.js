@@ -29,7 +29,7 @@ async function main() {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
-    fs.writeFile(`${dir}/${path}`, JSON.stringify(data, null, 4), (err) => {
+    fs.writeFile(path.join(dir, path), JSON.stringify(data, null, 4), (err) => {
       if (err) return err;
     });
     callback();

@@ -67,7 +67,7 @@ async function getBucketMetadata(bucket = process.env.BUCKET) {
  * Lists all files for a single bucket
  * Returns an array of the files
  * @param String, Bucket name
- * @returns {arr[]} Array of files inside specified bucket
+ * @returns Array of files inside specified bucket
  */
 async function listFileNames(bucketName = process.env.BUCKET) {
   let fileNames = [];
@@ -104,6 +104,8 @@ async function listFilesBuckets(fetchBucket = []) {
     }
 
     const [files] = await storage.bucket(fetchBucket).getFiles();
+    // will fix promise
+    // const [files] = await storage.bucket(buckets).getFiles();
 
     if (typeof files !== 'object') {
       return;
