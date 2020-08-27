@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev-api": "nodemon src/server/server",
-    "start": "babel-node -- src/index",
+    "start": "node src/server/server.js",
     "dev": "nodemon --exec babel-node src/index"
   },
   "author": "hawyar",
@@ -25,6 +25,7 @@
     "express-fileupload": "^1.1.9",
     "lodash": "^4.17.19",
     "morgan": "^1.10.0",
+    "mv": "^2.1.1",
     "nodemon": "^2.0.4",
     "unique-names-generator": "^4.3.1"
   }

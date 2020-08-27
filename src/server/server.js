@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3132);
 
 /**
  * File upload specific middlware
@@ -45,7 +45,7 @@ app.use(
 app.use('/', Routes);
 
 /**
- * Server is running on port 3000
+ * Server is running on port 3132
  * or the PORT key defined in .env file
  *
  */

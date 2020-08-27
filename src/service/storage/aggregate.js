@@ -9,5 +9,13 @@ async function main() {
   // console.log(myBuckets);
   //   const meta = await bucket.getBucketMetadata('past-storm');
   //   console.log(meta);
+
+  const uploadBucket = bucket
+    .uploadFile('big-burger', 'src/server/server.js')
+    .catch((error) => {
+      console.log(error);
+    });
+
+  console.log(uploadBucket);
 }
 main();

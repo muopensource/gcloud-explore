@@ -145,6 +145,33 @@ async function listFilesBuckets(fetchBucket = []) {
   }
 }
 
+/**
+ * List all buckets associated with projectId
+ * @returns Array of all the available buckets
+ * @return {Promise} Promise
+ */
+async function uploadFile(bucketName, file) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await storage.bucket(bucketName).upload(file, {
+        gzip: true,
+        // By setting the option `destination`, you can change the name of the
+        // object you are uploading to a bucket.
+        metadata: {
+          // Enable long-lived HTTP caching headers
+          // Use only if the contents of the file will never change
+          // (If the contents will change, use cacheControl: 'no-cache')
+          cacheControl: 'public, max-age=31536000',
+        },
+      });
+
+      resolve(file);
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
 async function deleteBucket(bucketName) {
   // Deletes the bucket
   await storage.bucket(bucketName).delete();
@@ -156,6 +183,7 @@ module.exports = {
   createBucket,
   deleteBucket,
   getBucketMetadata,
+  uploadFile,
 };
 
 // // TODO: sort by specified ext type
