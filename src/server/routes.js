@@ -20,12 +20,25 @@ router.post('/upload', async (req, res) => {
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   let uploadFile = req.files.pdfFile;
 
-  // const bucky = await bucket
-  //   .uploadFile('big-burger', uploadFile)
-  //   .catch((error) => {
-  //     res.status(502).send(error);
-  //   });
+  uploadFile.mv('./uploads/' + uploadFile.name);
 
+  const bucky = await bucket
+    .uploadFile('big-burger', uploadFile)
+    .catch((error) => {
+      res.status(502).send(error);
+    });
+
+  console.log(bucky);
+
+  res.send({
+    status: true,
+    message: 'File is uploaded',
+    data: {
+      name: uploadFile.name,
+      mimetype: uploadFile.mimetype,
+      size: uploadFile.size,
+    },
+  });
   // const pathDest = __dirname + '/uploads/' + uploadFile.name;
 
   // Use the mv() method to place the file somewhere on your server

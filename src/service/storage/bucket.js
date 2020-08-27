@@ -153,7 +153,7 @@ async function listFilesBuckets(fetchBucket = []) {
 async function uploadFile(bucketName, file) {
   return new Promise(async (resolve, reject) => {
     try {
-      await storage.bucket(bucketName).upload(file, {
+      const fileData = await storage.bucket(bucketName).upload(file, {
         gzip: true,
         // By setting the option `destination`, you can change the name of the
         // object you are uploading to a bucket.
@@ -165,7 +165,7 @@ async function uploadFile(bucketName, file) {
         },
       });
 
-      resolve(file);
+      resolve(fileData);
     } catch (e) {
       reject(e);
     }
