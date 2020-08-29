@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Storage } = require('@google-cloud/storage');
 const chalk = require('chalk');
-const { reject } = require('lodash');
 const _ = require('lodash');
 const namegen = require('../../utils/namegen');
 
