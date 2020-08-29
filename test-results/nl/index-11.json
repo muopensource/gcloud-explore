@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "first", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "first",
+  "type": "OTHER",
+  "salience": 0.009388266131281853,
+  "sentiment": null
+}

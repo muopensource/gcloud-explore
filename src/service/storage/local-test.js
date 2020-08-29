@@ -1,4 +1,4 @@
-const bucket = require('../storage/bucket');
+const bucket = require('./bucket');
 const fs = require('fs');
 async function main() {
   // create bucket

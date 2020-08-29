@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "1957", "beginOffset": -1 },
+      "type": "TYPE_UNKNOWN",
+      "sentiment": null
+    }
+  ],
+  "metadata": { "year": "1957" },
+  "name": "1957",
+  "type": "DATE",
+  "salience": 0,
+  "sentiment": null
+}

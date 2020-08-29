@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "area", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "area",
+  "type": "LOCATION",
+  "salience": 0.024640439078211784,
+  "sentiment": null
+}

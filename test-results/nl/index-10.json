@@ -1,0 +1,17 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "Hurricane Audrey", "beginOffset": -1 },
+      "type": "PROPER",
+      "sentiment": null
+    }
+  ],
+  "metadata": {
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Hurricane_Audrey",
+    "mid": "/m/0cb0_2"
+  },
+  "name": "Hurricane Audrey",
+  "type": "PERSON",
+  "salience": 0.011599079705774784,
+  "sentiment": null
+}

@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "people", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "people",
+  "type": "PERSON",
+  "salience": 0.09448803961277008,
+  "sentiment": null
+}

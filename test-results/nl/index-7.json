@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "communities", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "communities",
+  "type": "PERSON",
+  "salience": 0.02586778812110424,
+  "sentiment": null
+}

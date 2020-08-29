@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "Lake Charles", "beginOffset": -1 },
+      "type": "PROPER",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "Lake Charles",
+  "type": "LOCATION",
+  "salience": 0.03416776657104492,
+  "sentiment": null
+}

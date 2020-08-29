@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "place", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "place",
+  "type": "OTHER",
+  "salience": 0.20586462318897247,
+  "sentiment": null
+}

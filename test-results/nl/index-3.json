@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "storm", "beginOffset": -1 },
+      "type": "COMMON",
+      "sentiment": null
+    }
+  ],
+  "metadata": {},
+  "name": "storm",
+  "type": "EVENT",
+  "salience": 0.07246321439743042,
+  "sentiment": null
+}

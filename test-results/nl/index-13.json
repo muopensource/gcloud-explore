@@ -1,0 +1,14 @@
+{
+  "mentions": [
+    {
+      "text": { "content": "6,000", "beginOffset": -1 },
+      "type": "TYPE_UNKNOWN",
+      "sentiment": null
+    }
+  ],
+  "metadata": { "value": "6000" },
+  "name": "6,000",
+  "type": "NUMBER",
+  "salience": 0,
+  "sentiment": null
+}
