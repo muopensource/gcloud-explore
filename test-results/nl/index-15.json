@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"1957","beginOffset":-1},"type":"TYPE_UNKNOWN","sentiment":null}],"metadata":{"value":"1957"},"name":"1957","type":"NUMBER","salience":0,"sentiment":null}
+{"mentions":[{"text":{"content":"French","beginOffset":-1},"type":"PROPER","sentiment":null}],"metadata":{},"name":"French","type":"LOCATION","salience":0.006121866405010223,"sentiment":null}

@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"400","beginOffset":-1},"type":"TYPE_UNKNOWN","sentiment":null}],"metadata":{"value":"400"},"name":"400","type":"NUMBER","salience":0,"sentiment":null}
+{"mentions":[{"text":{"content":"research","beginOffset":-1},"type":"COMMON","sentiment":null}],"metadata":{},"name":"research","type":"OTHER","salience":0.0071215699426829815,"sentiment":null}

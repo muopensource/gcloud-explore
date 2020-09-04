@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"people","beginOffset":-1},"type":"COMMON","sentiment":null}],"metadata":{},"name":"people","type":"PERSON","salience":0.09448803961277008,"sentiment":null}
+{"mentions":[{"text":{"content":"Earth","beginOffset":-1},"type":"PROPER","sentiment":null},{"text":{"content":"Earth","beginOffset":-1},"type":"PROPER","sentiment":null}],"metadata":{"mid":"/m/02j71","wikipedia_url":"https://en.wikipedia.org/wiki/Earth"},"name":"Earth","type":"LOCATION","salience":0.07162018865346909,"sentiment":null}

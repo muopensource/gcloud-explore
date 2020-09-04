@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"communities","beginOffset":-1},"type":"COMMON","sentiment":null}],"metadata":{},"name":"communities","type":"PERSON","salience":0.02586778812110424,"sentiment":null}
+{"mentions":[{"text":{"content":"journal","beginOffset":-1},"type":"COMMON","sentiment":null},{"text":{"content":"Science","beginOffset":-1},"type":"PROPER","sentiment":null}],"metadata":{"mid":"/m/01bgtn","wikipedia_url":"https://en.wikipedia.org/wiki/Science_(journal)"},"name":"Science","type":"WORK_OF_ART","salience":0.023052645847201347,"sentiment":null}

@@ -3,6 +3,7 @@ const { Storage } = require('@google-cloud/storage');
 const chalk = require('chalk');
 const _ = require('lodash');
 const namegen = require('../../utils/namegen');
+const FileType = require('file-type');
 
 /**
  * Cloud storage instance
@@ -99,23 +100,16 @@ async function getBucketMetadata(bucket = '') {
  * @returns Array of files inside specified bucket
  */
 async function listFileNames(bucketName = process.env.BUCKET) {
-
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     let fileNames = [];
     try {
       const [files] = await storage.bucket(bucketName).getFiles();
 
-      files.forEach((file) => {
-        fileMeta.push(file.name);
-      });
-
-      resolve(fileNames)
+      resolve(files);
     } catch (error) {
-      reject(error)
-
+      reject(error);
     }
-  })
-
+  });
 }
 
 /**
@@ -181,26 +175,48 @@ async function uploadFile(bucketName, file) {
   });
 }
 
-// async function deleteBucket(bucketName) {
-//   // Deletes the bucket
-//   await storage.bucket(bucketName).delete();
-//   console.log(`Bucket ${bucketName} deleted.`);
-// }
+async function deleteBucket(bucketName) {
+  return new Promise((resolve, reject) => {
+    try {
+      const gone = storage
+        .bucket(bucketName)
+        .exists()
+        .then((exists, err) => {
+          if (err) {
+            reject(err);
+          }
+          console.log(typeof exists);
+          return exists;
+        });
 
-// // TODO: sort by specified ext type
-// function sortByExt(file) {
-//   if (!files) {
-//     console.log(`Error: Include a file as a paramter`);
-//   }
-//   // for now just print file
-//   console.log(file);
-// }
+      if (gone) {
+        storage
+          .bucket(bucketName)
+          .delete()
+          .then((data) => {
+            resolve(data);
+          });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+// TODO: sort by specified ext type
+function sortByExt(file) {
+  if (!files) {
+    console.log(`Error: Include a file as a paramter`);
+  }
+  // for now just print file
+  console.log(file);
+}
 
 module.exports = {
-  listBuckets,
-  createBucket,
-  deleteBucket,
-  getBucketMetadata,
-  uploadFile,
+  // bucket,
+  // listBuckets,
+  // createBucket,
+  // deleteBucket,
+  // getBucketMetadata,
+  // uploadFile,
+  listFileNames,
 };
-

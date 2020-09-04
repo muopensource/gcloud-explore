@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"storm","beginOffset":-1},"type":"COMMON","sentiment":null}],"metadata":{},"name":"storm","type":"EVENT","salience":0.07246321439743042,"sentiment":null}
+{"mentions":[{"text":{"content":"AFP","beginOffset":-1},"type":"PROPER","sentiment":null},{"text":{"content":"AFP","beginOffset":-1},"type":"PROPER","sentiment":null}],"metadata":{},"name":"AFP","type":"ORGANIZATION","salience":0.037207555025815964,"sentiment":null}

@@ -1,1 +1,1 @@
-{"mentions":[{"text":{"content":"Rita","beginOffset":-1},"type":"PROPER","sentiment":null}],"metadata":{},"name":"Rita","type":"PERSON","salience":0.04095059260725975,"sentiment":null}
+{"mentions":[{"text":{"content":"planet","beginOffset":-1},"type":"COMMON","sentiment":null}],"metadata":{},"name":"planet","type":"LOCATION","salience":0.02951785922050476,"sentiment":null}
