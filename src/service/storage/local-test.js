@@ -7,18 +7,18 @@ async function main() {
   // await bucketUtil.deleteBucket('qalamala').then((e) => console.log(e));
 
   // get all buckets
-  // const myBuckets = await bucket.listBuckets();
-  // console.log(myBuckets);
-  //   const meta = await bucket.getBucketMetadata('past-storm');
-  //   console.log(meta);
+  const myBuckets = await bucket.listBuckets();
+  console.log(myBuckets);
+  const meta = await bucket.getBucketMetadata('past-storm');
+  console.log(meta);
 
-  bucketUtil.listFileNames('big-burger').then((files) =>
-    files.map((el) => {
-      if (el.metadata.contentType === 'text/csv') {
-        el.makePublic().then((el) => console.log(el));
-      }
-    })
-  );
+  // bucketUtil.listFileNames('big-burger').then((files) =>
+  //   files.map((el) => {
+  //     if (el.metadata.contentType === 'text/csv') {
+  //       el.makePublic().then((el) => console.log(el));
+  //     }
+  //   })
+  // );
 
   // bucket
   //   .uploadFile('big-burger', 'src/server/routes.js')

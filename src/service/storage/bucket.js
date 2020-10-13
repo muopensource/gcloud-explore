@@ -28,9 +28,9 @@ async function bucket(bucketName) {
 
 /**
  * Create a new bucket
- * @param {String} bucketName Bucket Name
- * @param {Object} options defaults to https://cloud.google.com/storage/docs/storage-classes & https://cloud.google.com/storage/docs/locations
- * @return {Promise} Promise
+ * @param {string} bucketName Bucket Name
+ * @param {object} options defaults to https://cloud.google.com/storage/docs/storage-classes & https://cloud.google.com/storage/docs/locations
+ * @return {promise} Bucket object
  */
 async function createBucket(bucketName = namegen.randomName(), options = {}) {
   return new Promise(async (resolve, reject) => {
@@ -44,11 +44,9 @@ async function createBucket(bucketName = namegen.randomName(), options = {}) {
 
       if (bucketIndex > 0) {
         reject(
-          new Error(
-            `Error: Bucket ${chalk.bgRed(
-              bucketName
-            )} already exists, choose a different name`
-          )
+          `Bucket ${chalk.bgRed(
+            bucketName
+          )} already exists, choose a different name`
         );
       }
       const [bucket] = await storage.createBucket(bucketName, { ...options });
@@ -62,7 +60,7 @@ async function createBucket(bucketName = namegen.randomName(), options = {}) {
 /**
  * List all buckets associated with projectId
  * @returns Array of all the available buckets
- * @return {Promise} Promise
+ * @return {promise} All active buckets
  */
 async function listBuckets() {
   return new Promise(async (resolve, reject) => {
@@ -80,7 +78,8 @@ async function listBuckets() {
 
 /**
  * Get a bucket's metadata
- * @returns A bucket's metadata (e.g. id, location, name, description, timestamps, etc...)
+ * @param {string} bucket Bucket Name
+ * @returns {promise} Bucket metadata (e.g. id, location, name, description, timestamps, etc...)
  */
 async function getBucketMetadata(bucket = '') {
   return new Promise(async (resolve, reject) => {
@@ -95,9 +94,8 @@ async function getBucketMetadata(bucket = '') {
 
 /**
  * Lists all files for a single bucket
- * Returns an array of the files
- * @param String, Bucket name
- * @returns Array of files inside specified bucket
+ * @param {string}, Bucket name
+ * @returns {promise} Array of files included in specified bucket
  */
 async function listFileNames(bucketName = process.env.BUCKET) {
   return new Promise(async (resolve, reject) => {
@@ -114,9 +112,8 @@ async function listFileNames(bucketName = process.env.BUCKET) {
 
 /**
  * Fetches all the files for multiple buckets
- * Returns an object with each bucket and its corresponding file
- * @param {string[]}
- * @returns [arr] An array of all the file name
+ * @param {array} fetchBucket  A bucket or array of buckets
+ * @returns {array} An array of all the file name
  */
 async function listFilesBuckets(fetchBucket = []) {
   // if (!fetchBucket || fetchBucket.length === 0 || !Array.isArray(fetchBucket)) {
@@ -128,6 +125,7 @@ async function listFilesBuckets(fetchBucket = []) {
   try {
     if (Array.isArray(fetchBucket) && fetchBucket > 0) {
       const [buckets] = await storage.getBuckets();
+      allBuckets.push(buckets);
     }
 
     const [files] = await storage.bucket(fetchBucket).getFiles();
